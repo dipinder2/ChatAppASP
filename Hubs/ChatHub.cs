@@ -1,8 +1,12 @@
-﻿using Microsoft.AspNetCore.SignalR;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.SignalR;
 using WebApplication2.Models;
 
 namespace WebApplication2.Hubs;
 
+[AllowAnonymous]
+[EnableCors("MyAllowSpecificOrigins")]
 public class ChatHub : Hub
 {
     private readonly MessageContext _context;
